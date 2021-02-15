@@ -9,7 +9,7 @@ Consiste na criação do primeiro Blog para demostração no Curso WTTD. pela In
 * Instale as dependências.
 * Rode as migrações.
 
-##-Usando-Linux
+## Usando-Linux
 ```
 No Terminal
 git clone https://github.com/vladetec/AnFristPost.git
@@ -23,7 +23,7 @@ python manage.py migrate
 python manage.py createsuperuser --email admin@example.com --username admin
 python manage.py runserver
 ```
-##-Caso-Windows
+## Caso-Windows
 ```
 cmd
 git clone https://github.com/vladetec/AnFristPost.git
@@ -42,13 +42,23 @@ python manage.py runserver
 ## Links - Tecnologias Utilitarias
 
 [Python](https://www.python.org/)
+
 [Django](https://www.djangoproject.com/)
+
 [Django-Rest-Framework](https://www.django-rest-framework.org/)
+
 [Insomnia](https://insomnia.rest/download/)
+
 [Db-Browser](https://sqlitebrowser.org/)
+
 [PostgresSQL](https://www.postgresql.org/)
+
 [Templates](https://html5up.net/)
+
 [VsCode](https://code.visualstudio.com/)
+
 [PyCharm](https://www.jetbrains.com/pt-br/pycharm/)
+
 [emmet](https://emmet.io/)
+
 [Python-Dcouple](https://github.com/henriquebastos/python-decouple)
