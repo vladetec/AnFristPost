@@ -1,0 +1,55 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home-Blog</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <h1>Home-Blog-{{Ano}}</h1>
+    {{Nome}}
+    {% for i in Cursos %}
+        {% if i == 'Welcome-To-The-Django' %}
+            <li><b>{{ i }}</b></li>
+        {% else %}
+            <li>{{ i }} </li> 
+        {% endif%}       
+    {% endfor %}
+    <hr></hr>
+    {% for post in Post %}
+        <h2>{{ post.title}}</h2>
+        <h3>{{ post.sub_title }}</h3>
+        <p>{{ post.content }}</p>      
+    {% endfor %}
+    <hr></hr>
+    
+        <h2>API REST</h2>
+        <h3>O que é ?</h3>
+        <p>API REST, também chamada de API RESTful, 
+        é uma interface de programação de aplicações 
+        que segue conformidade com as restrições da arquitetura REST.
+         A sigla REST significa Representational State 
+         Transfer (Transferência Representacional de 
+         Estado, em português). Uma interface de programação 
+         de aplicações (API) é um conjunto de definições e protocolos 
+         para criar e integrar softwares de aplicações. Às vezes, as 
+         APIs são referidas como um contrato entre um provedor e um 
+         usuário de informações, estabelecendo o conteúdo exigido pelo 
+         consumidor (a chamada) e o conteúdo exigido pelo produtor (a resposta).
+          Por exemplo, uma API de um serviço meteorológico pode especificar que 
+          o usuário forneça um CEP e o produtor responda em duas partes, 
+          a primeira contendo a temperatura mais elevada e a segunda com a 
+          temperatura mais baixa. Em outras palavras, ao interagir 
+          com um computador ou sistema para recuperar informações ou 
+          executar uma função, a API ajudará a comunicar o que você quer 
+          ao sistema para que ele entenda e realize o que foi solicitado.
+          </p>      
+    
+    
+    <script src="" async defer></script>
+  </body>
+</html>
