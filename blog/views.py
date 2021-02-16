@@ -1,15 +1,25 @@
+from django.views.generic import FormView
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import Post
+from .forms import ContatoForm
 
-def home(request):
-    
-    lista = [
-        'Welcome-To-The-Django',
-        'Passaport-Dev-Sênior',
-        'Raio-X-Regex',
-        'Raio-X-POO',
-        'Raio-x-TDD'
-        ]
-    lista_post = Post.objects.all()    
-    data = {'Nome': 'Vlademir', 'Ano': 2021, 'Cursos': lista, 'Post': lista_post}
-    return render(request, 'index.html', data)  
+class IndexView(FormView):
+    template_name = 'index.html'
+    form_class = ContatoForm
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['posts'] = Post.objects.order_by('?').all()
+        return context
+
+
+    def form_valid(self, form, *args, **kwargs):
+        form.send_mail()
+        messages.success(self.request, 'E-mail enviado com sucesso')
+        return super(IndexView, self).form_valid(form, *args, **kwargs)
+
+    def form_invalid(self, form, *args, **kwargs):
+        messages.error(self.request, 'Erro ao enviar e-mail')
+        return super(IndexView, self).form_invalid(form, *args, **kwargs)
